@@ -26,6 +26,9 @@ public class MarsRover {
             case "L":
                 turnLeft();
                 break;
+            case "R":
+                turnRight();
+                break;
             default:
         }
         return reportRoverDetail();
@@ -41,5 +44,9 @@ public class MarsRover {
 
     private void turnLeft(){
         direction = "W";
+    }
+
+    private void turnRight(){
+        direction = "E";
     }
 }
