@@ -1,11 +1,10 @@
 package com.afs.tdd;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class DemoTest {
+class MarsRoverTest {
 
     @Test
     void should_return_initial_rover_details_when_report_rover_detail_given_initial_rover() {
@@ -19,4 +18,6 @@ class DemoTest {
         //Then
         assertEquals(expected, actual);
     }
+
+
 }
