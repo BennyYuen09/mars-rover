@@ -57,38 +57,18 @@ public class MarsRover {
     }
 
     private void turnLeft(){
-        switch (direction){
-            case "N":
-                direction = "W";
-                break;
-            case "E":
-                direction = "N";
-                break;
-            case "S":
-                direction = "E";
-                break;
-            case "W":
-                direction = "S";
-                break;
-            default:
+        int directionIndex = Arrays.asList(allowDirection).indexOf(this.direction) - 1;
+        if (directionIndex < 0){
+            directionIndex = allowDirection.length - 1;
         }
+        this.direction = allowDirection[directionIndex];
     }
 
     private void turnRight(){
-        switch (direction){
-            case "N":
-                direction = "E";
-                break;
-            case "E":
-                direction = "S";
-                break;
-            case "S":
-                direction = "W";
-                break;
-            case "W":
-                direction = "N";
-                break;
-            default:
+        int directionIndex = Arrays.asList(allowDirection).indexOf(this.direction) + 1;
+        if (directionIndex >= allowDirection.length){
+            directionIndex = 0;
         }
+        this.direction = allowDirection[directionIndex];
     }
 }
