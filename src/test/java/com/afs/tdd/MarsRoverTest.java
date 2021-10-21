@@ -60,4 +60,18 @@ class MarsRoverTest {
         //Then
         assertEquals(expected, actual);
     }
+
+    @Test
+    void should_minus_one_space_to_x_location_when_process_command_given_rover_face_west_m_command() {
+        //given
+        MarsRover marsRover = new MarsRover(0, 0, "W");
+        String command = "M";
+        String expected = "-1 0 W";
+
+        //when
+        String actual = marsRover.processCommand(command);
+
+        //Then
+        assertEquals(expected, actual);
+    }
 }
