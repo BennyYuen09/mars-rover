@@ -48,6 +48,10 @@ public class MarsRover {
                 break;
             case "S":
                 yLocation--;
+                break;
+            case "E":
+                xLocation++;
+                break;
             default:
         }
     }
