@@ -18,6 +18,10 @@ public class MarsRover {
         }
     }
 
+    public String processCommand(String command) {
+        return null;
+    }
+
     public String reportRoverDetail() {
         return String.format("%d %d %s", xLocation, yLocation, direction);
     }
