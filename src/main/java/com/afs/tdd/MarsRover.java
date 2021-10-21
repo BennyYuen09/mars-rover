@@ -19,6 +19,6 @@ public class MarsRover {
     }
 
     public String reportRoverDetail() {
-        return null;
+        return String.format("%d %d %s", xLocation, yLocation, direction);
     }
 }

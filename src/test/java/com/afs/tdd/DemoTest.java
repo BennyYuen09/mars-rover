@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class DemoTest {
-    private MarsRover marsRover;
 
     @Test
     void should_return_initial_rover_details_when_report_rover_detail_given_initial_rover() {
