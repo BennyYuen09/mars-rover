@@ -19,7 +19,15 @@ public class MarsRover {
     }
 
     public String processCommand(String command) {
-        moveForward();
+        switch (command){
+            case "M":
+                moveForward();
+                break;
+            case "L":
+                turnLeft();
+                break;
+            default:
+        }
         return reportRoverDetail();
     }
 
@@ -29,5 +37,9 @@ public class MarsRover {
 
     private void moveForward(){
         yLocation++;
+    }
+
+    private void turnLeft(){
+        direction = "W";
     }
 }
