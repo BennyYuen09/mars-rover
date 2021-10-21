@@ -88,4 +88,18 @@ class MarsRoverTest {
         //Then
         assertEquals(expected, actual);
     }
+
+    @Test
+    void should_add_one_space_to_x_location_when_process_command_given_rover_face_east_m_command() {
+        //given
+        MarsRover marsRover = new MarsRover(0, 0, "E");
+        String command = "M";
+        String expected = "1 0 E";
+
+        //when
+        String actual = marsRover.processCommand(command);
+
+        //Then
+        assertEquals(expected, actual);
+    }
 }
