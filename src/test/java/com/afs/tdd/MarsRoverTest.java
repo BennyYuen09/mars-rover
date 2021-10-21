@@ -46,4 +46,18 @@ class MarsRoverTest {
         //Then
         assertEquals(expected, actual);
     }
+
+    @Test
+    void should_turn_to_east_when_process_command_given_initial_rover_r_command() {
+        //given
+        MarsRover marsRover = new MarsRover(0, 0, "N");
+        String command = "R";
+        String expected = "0 0 E";
+
+        //when
+        String actual = marsRover.processCommand(command);
+
+        //Then
+        assertEquals(expected, actual);
+    }
 }
