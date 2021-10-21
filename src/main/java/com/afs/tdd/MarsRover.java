@@ -39,7 +39,15 @@ public class MarsRover {
     }
 
     private void moveForward(){
-        yLocation++;
+        switch (direction){
+            case "N":
+                yLocation++;
+                break;
+            case "W":
+                xLocation--;
+                break;
+            default:
+        }
     }
 
     private void turnLeft(){
