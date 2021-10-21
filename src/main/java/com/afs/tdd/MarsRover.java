@@ -3,10 +3,11 @@ package com.afs.tdd;
 import java.util.Arrays;
 
 public class MarsRover {
+    private final String[] allowDirection = {"N", "E", "S", "W"};
+
     private int xLocation;
     private int yLocation;
     private String direction;
-    private final String[] allowDirection = {"N", "E", "S", "W"};
 
     public MarsRover(int xLocation, int yLocation, String direction) {
         this.xLocation = xLocation;
@@ -70,5 +71,13 @@ public class MarsRover {
             directionIndex = 0;
         }
         this.direction = allowDirection[directionIndex];
+    }
+
+    public String processBatchCommand(String command) {
+        String output = "";
+        for (int i=0; i<command.length(); i++){
+            output = processCommand(Character.toString(command.charAt(i)));
+        }
+        return output;
     }
 }

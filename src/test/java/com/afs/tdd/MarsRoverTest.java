@@ -186,4 +186,18 @@ class MarsRoverTest {
         //Then
         assertEquals(expected, actual);
     }
+
+    @Test
+    void should_move_to_x_1_y_1_when_process_command_given_rover_with_batch_command() {
+        //given
+        MarsRover marsRover = new MarsRover(0, 0, "N");
+        String command = "RMLM";
+        String expected = "1 1 N";
+
+        //when
+        String actual = marsRover.processBatchCommand(command);
+
+        //Then
+        assertEquals(expected, actual);
+    }
 }
