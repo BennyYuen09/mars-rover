@@ -3,7 +3,7 @@ package com.afs.tdd;
 import java.util.Arrays;
 
 public class MarsRover {
-    private final String[] allowDirection = {"N", "E", "S", "W"};
+    private final String[] ALLOW_DIRECTIONS = {"N", "E", "S", "W"};
 
     private int xLocation;
     private int yLocation;
@@ -12,10 +12,11 @@ public class MarsRover {
     public MarsRover(int xLocation, int yLocation, String direction) {
         this.xLocation = xLocation;
         this.yLocation = yLocation;
-        if (Arrays.asList(allowDirection).contains(direction)){
+
+        if (Arrays.asList(ALLOW_DIRECTIONS).contains(direction)){
             this.direction = direction;
         }else {
-            this.direction = allowDirection[0];
+            this.direction = ALLOW_DIRECTIONS[0];
         }
     }
 
@@ -58,26 +59,24 @@ public class MarsRover {
     }
 
     private void turnLeft(){
-        int directionIndex = Arrays.asList(allowDirection).indexOf(this.direction) - 1;
-        if (directionIndex < 0){
-            directionIndex = allowDirection.length - 1;
-        }
-        this.direction = allowDirection[directionIndex];
+        int newDirectionIndex = (getDirectionIndex() - 1 + ALLOW_DIRECTIONS.length) % ALLOW_DIRECTIONS.length;
+        this.direction = ALLOW_DIRECTIONS[newDirectionIndex];
     }
 
     private void turnRight(){
-        int directionIndex = Arrays.asList(allowDirection).indexOf(this.direction) + 1;
-        if (directionIndex >= allowDirection.length){
-            directionIndex = 0;
-        }
-        this.direction = allowDirection[directionIndex];
+        int newDirectionIndex = getDirectionIndex() % ALLOW_DIRECTIONS.length;
+        this.direction = ALLOW_DIRECTIONS[newDirectionIndex];
     }
 
-    public String processBatchCommand(String command) {
-        String output = "";
-        for (int i=0; i<command.length(); i++){
-            output = processCommand(Character.toString(command.charAt(i)));
+    private int getDirectionIndex(){
+        return Arrays.asList(ALLOW_DIRECTIONS)
+                .indexOf(this.direction);
+    }
+
+    public String processBatchCommand(String commands) {
+        for (int i=0; i<commands.length(); i++){
+            processCommand(Character.toString(commands.charAt(i)));
         }
-        return output;
+        return reportRoverDetail();
     }
 }
